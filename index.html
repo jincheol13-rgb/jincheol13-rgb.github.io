@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>양구군 관광 가이드</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Maps API (Development Mode) -->
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="mobile-app">
+    <!-- Header -->
+    <header id="header" class="app-header">
+        <div class="header-container">
+            <a href="#" class="logo">
+                <img src="양구군 로고.png" alt="양구군 로고" style="height: 32px; width: auto; display: block;">
+            </a>
+            <nav class="desktop-nav">
+                <a href="#" class="active"><i class="fa-solid fa-house"></i> 홈</a>
+                <a href="#" id="desktop-tab-favorites"><i class="fa-solid fa-heart"></i> 나의 찜</a>
+            </nav>
+            <div class="header-actions">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <i class="fa-regular fa-bell"></i>
+            </div>
+        </div>
+    </header>
+
+    <main class="app-main">
+        <!-- Hero Banner (Swiping Style) -->
+        <section id="hero" class="app-hero">
+            <div class="hero-bg" style="background-image: url('file:///C:/Users/USER11/.gemini/antigravity/brain/238f1a2d-5d62-4a5f-8773-c3275266b9c0/yanggu_hero_bg_1779164928732.png');"></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <span class="badge">추천여행</span>
+                <h2>청춘 양구, 자연을 품다</h2>
+                <p>가장 완벽한 휴식을 만나보세요.</p>
+            </div>
+            <div class="banner-pagination">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </section>
+
+
+
+        <!-- Categories (Quick Links) -->
+        <section class="app-categories">
+            <div class="cat-grid">
+                <a href="#destinations" class="cat-item" style="text-decoration: none; color: inherit;">
+                    <div class="icon-box"><i class="fa-solid fa-map-location-dot"></i></div>
+                    <span>가볼만한곳</span>
+                </a>
+                <a href="#restaurants" class="cat-item" style="text-decoration: none; color: inherit;">
+                    <div class="icon-box"><i class="fa-solid fa-utensils"></i></div>
+                    <span>양구맛집</span>
+                </a>
+                <a href="#" class="cat-item" style="text-decoration: none; color: inherit;">
+                    <div class="icon-box"><i class="fa-solid fa-campground"></i></div>
+                    <span>캠핑/숙박</span>
+                </a>
+                <a href="#" class="cat-item" style="text-decoration: none; color: inherit;">
+                    <div class="icon-box"><i class="fa-solid fa-calendar-star"></i></div>
+                    <span>축제행사</span>
+                </a>
+                <a href="#" class="cat-item" style="text-decoration: none; color: inherit;">
+                    <div class="icon-box"><i class="fa-solid fa-bus"></i></div>
+                    <span>시티투어</span>
+                </a>
+                <a href="https://ilovegohyang.go.kr/main.html?v=20260105" target="_blank" class="cat-item" style="text-decoration: none; color: inherit;">
+                    <div class="icon-box"><i class="fa-solid fa-hand-holding-heart"></i></div>
+                    <span>고향사랑기부</span>
+                </a>
+                <a href="https://ilovegohyang.go.kr/goods/searchGoods-main.html?type=L&locgov=51800" target="_blank" class="cat-item" style="text-decoration: none; color: inherit;">
+                    <div class="icon-box"><i class="fa-solid fa-gift"></i></div>
+                    <span>답례품몰</span>
+                </a>
+                <a href="https://www.ygtour.kr/Home/index" target="_blank" class="cat-item" style="text-decoration: none; color: inherit;">
+                    <div class="icon-box"><i class="fa-solid fa-compass"></i></div>
+                    <span>양구관광</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Hot Places (Feed Style) -->
+        <section id="destinations" class="app-feed">
+            <div class="section-header">
+                <h2>지금 뜨는 양구 핫플 🔥</h2>
+                <a href="#" class="view-all">전체보기</a>
+            </div>
+            
+            <div class="feed-list">
+                <!-- Card 1 -->
+                <article class="feed-card">
+                    <div class="feed-img">
+                        <img src="file:///C:/Users/USER11/.gemini/antigravity/brain/238f1a2d-5d62-4a5f-8773-c3275266b9c0/museum_img_1779164950118.png" alt="박수근미술관">
+                        <div class="like-btn" data-title="박수근미술관" data-img="file:///C:/Users/USER11/.gemini/antigravity/brain/238f1a2d-5d62-4a5f-8773-c3275266b9c0/museum_img_1779164950118.png"><i class="fa-regular fa-heart"></i></div>
+                    </div>
+                    <div class="feed-info">
+                        <div class="tags"><span class="tag">문화/예술</span></div>
+                        <h3>박수근미술관</h3>
+                        <p>한국의 밀레, 국민화가 박수근 선생의 예술혼이 살아숨쉬는 공간입니다.</p>
+                        <a href="https://www.youtube.com/shorts/Hg3u5Se7D88" target="_blank" class="read-more btn-sm">영상보기</a>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="feed-card">
+                    <div class="feed-img">
+                        <img src="file:///C:/Users/USER11/.gemini/antigravity/brain/238f1a2d-5d62-4a5f-8773-c3275266b9c0/observatory_img_1779164964628.png" alt="국토정중앙천문대">
+                        <div class="like-btn" data-title="국토정중앙천문대" data-img="file:///C:/Users/USER11/.gemini/antigravity/brain/238f1a2d-5d62-4a5f-8773-c3275266b9c0/observatory_img_1779164964628.png"><i class="fa-regular fa-heart"></i></div>
+                    </div>
+                    <div class="feed-info">
+                        <div class="tags"><span class="tag">체험/학습</span></div>
+                        <h3>국토정중앙천문대</h3>
+                        <p>밤하늘의 쏟아지는 별을 관측할 수 있는 곳.</p>
+                        <a href="https://www.youtube.com/shorts/GtJ4ByBAi8w" target="_blank" class="read-more btn-sm">영상보기</a>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="feed-card">
+                    <div class="feed-img">
+                        <img src="file:///C:/Users/USER11/.gemini/antigravity/brain/238f1a2d-5d62-4a5f-8773-c3275266b9c0/island_img_1779164978040.png" alt="한반도섬">
+                        <div class="like-btn" data-title="한반도섬" data-img="file:///C:/Users/USER11/.gemini/antigravity/brain/238f1a2d-5d62-4a5f-8773-c3275266b9c0/island_img_1779164978040.png"><i class="fa-regular fa-heart"></i></div>
+                    </div>
+                    <div class="feed-info">
+                        <div class="tags"><span class="tag">생태/휴양</span></div>
+                        <h3>한반도섬</h3>
+                        <p>파로호 인공습지 내에 조성된 국내 최대 규모의 인공섬.</p>
+                        <a href="https://www.youtube.com/shorts/Sw9cnX7EkJ4" target="_blank" class="read-more btn-sm">영상보기</a>
+                    </div>
+                </article>
+                
+                <!-- Card 4 -->
+                <article class="feed-card">
+                    <div class="feed-img">
+                        <img src="file:///C:/Users/USER11/.gemini/antigravity/brain/238f1a2d-5d62-4a5f-8773-c3275266b9c0/valley_img_1779164994242.png" alt="두타연">
+                        <div class="like-btn" data-title="두타연" data-img="file:///C:/Users/USER11/.gemini/antigravity/brain/238f1a2d-5d62-4a5f-8773-c3275266b9c0/valley_img_1779164994242.png"><i class="fa-regular fa-heart"></i></div>
+                    </div>
+                    <div class="feed-info">
+                        <div class="tags"><span class="tag">자연/명소</span></div>
+                        <h3>두타연</h3>
+                        <p>원시림을 그대로 간직한 청정 계곡. 맑은 물과 기암괴석이 어우러진 비경.</p>
+                        <a href="https://www.youtube.com/shorts/tfuiLWXiqrE" target="_blank" class="read-more btn-sm">영상보기</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Restaurants -->
+        <section id="restaurants" class="app-feed bg-light">
+            <div class="section-header">
+                <h2>현지인 추천 양구 맛집 🍚</h2>
+            </div>
+            
+            <div class="restaurant-list">
+                <!-- Rest 1 -->
+                <div class="rest-card">
+                    <div class="rest-icon">🍲</div>
+                    <div class="rest-info">
+                        <h3>양구재래식손두부 본점</h3>
+                        <p class="menu">두부전골, 짜박두부</p>
+                        <p class="desc">매일 아침 양구 콩으로 직접 만드는 담백하고 깊은 맛의 두부 요리.</p>
+                        <div class="contact-info">
+                            <span><i class="fa-solid fa-location-dot"></i> 강원 양구군 양구읍 학안로 6</span>
+                            <span><i class="fa-solid fa-phone"></i> 033-482-1547</span>
+                        </div>
+                    </div>
+                    <div class="like-btn" data-title="양구재래식손두부 본점" data-img="https://placehold.co/100x100/e8f5e9/1a5e3a?text=🍲"><i class="fa-regular fa-heart"></i></div>
+                </div>
+                <!-- Rest 2 -->
+                <div class="rest-card">
+                    <div class="rest-icon">🍜</div>
+                    <div class="rest-info">
+                        <h3>도촌막국수</h3>
+                        <p class="menu">막국수, 편육, 감자전</p>
+                        <p class="desc">삼삼하면서도 깊은 동치미 육수와 야들야들한 편육의 완벽한 조화.</p>
+                        <div class="contact-info">
+                            <span><i class="fa-solid fa-location-dot"></i> 강원 양구군 국토정중앙면 국토정중앙로 6</span>
+                            <span><i class="fa-solid fa-phone"></i> 033-481-4627</span>
+                        </div>
+                    </div>
+                    <div class="like-btn" data-title="도촌막국수" data-img="https://placehold.co/100x100/e8f5e9/1a5e3a?text=🍜"><i class="fa-regular fa-heart"></i></div>
+                </div>
+                <!-- Rest 3 -->
+                <div class="rest-card">
+                    <div class="rest-icon">🥗</div>
+                    <div class="rest-info">
+                        <h3>청수골쉼터</h3>
+                        <p class="menu">산채비빔밥</p>
+                        <p class="desc">청정 산나물이 듬뿍 들어간 건강한 한 끼와 넉넉한 인심.</p>
+                        <div class="contact-info">
+                            <span><i class="fa-solid fa-location-dot"></i> 강원 양구군 국토정중앙면 정중앙로556번길 7-3</span>
+                            <span><i class="fa-solid fa-phone"></i> 033-481-1094</span>
+                        </div>
+                    </div>
+                    <div class="like-btn" data-title="청수골쉼터" data-img="https://placehold.co/100x100/e8f5e9/1a5e3a?text=🥗"><i class="fa-regular fa-heart"></i></div>
+                </div>
+                <!-- Rest 4 -->
+                <div class="rest-card">
+                    <div class="rest-icon">🥘</div>
+                    <div class="rest-info">
+                        <h3>전주식당</h3>
+                        <p class="menu">촌두부전골, 김치찌개</p>
+                        <p class="desc">장작불 가마솥에서 끓여낸 촌두부와 집밥 같은 정갈한 반찬.</p>
+                        <div class="contact-info">
+                            <span><i class="fa-solid fa-location-dot"></i> 강원 양구군 양구읍 비봉로 91-23</span>
+                            <span><i class="fa-solid fa-phone"></i> 033-481-7922</span>
+                        </div>
+                    </div>
+                    <div class="like-btn" data-title="전주식당" data-img="https://placehold.co/100x100/e8f5e9/1a5e3a?text=🥘"><i class="fa-regular fa-heart"></i></div>
+                </div>
+            </div>
+
+            <details class="rest-accordion" style="margin-top: 24px;">
+                <summary>양구 모범 음식점 18선 전체보기 <i class="fa-solid fa-chevron-down"></i></summary>
+                <ul class="rest-table-list">
+                    <li class="rest-table-item">
+                        <div class="rest-table-info"><h4>감람원</h4><p>삼계탕</p><p class="address"><i class="fa-solid fa-location-dot"></i> 양구군 양구읍 황강길 16-27</p></div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <a href="tel:033-481-6788" class="rest-table-phone"><i class="fa-solid fa-phone"></i></a>
+                            <div class="like-btn" data-title="감람원" data-img="https://placehold.co/100x100/e8f5e9/1a5e3a?text=🍲" style="position: static; box-shadow: none; background: transparent; width: auto; height: auto;"><i class="fa-regular fa-heart"></i></div>
+                        </div>
+                    </li>
+                    <li class="rest-table-item">
+                        <div class="rest-table-info"><h4>광치막국수</h4><p>막국수</p><p class="address"><i class="fa-solid fa-location-dot"></i> 양구군 국토정중앙면 가오작리 1051-1</p></div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <a href="tel:033-481-4095" class="rest-table-phone"><i class="fa-solid fa-phone"></i></a>
+                            <div class="like-btn" data-title="광치막국수" data-img="https://placehold.co/100x100/e8f5e9/1a5e3a?text=🍜" style="position: static; box-shadow: none; background: transparent; width: auto; height: auto;"><i class="fa-regular fa-heart"></i></div>
+                        </div>
+                    </li>
+                    <li class="rest-table-item">
+                        <div class="rest-table-info"><h4>꽃보다 소 양구점</h4><p>숯불구이</p><p class="address"><i class="fa-solid fa-location-dot"></i> 양구군 양구읍 중앙길 33-16</p></div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <a href="tel:033-482-3175" class="rest-table-phone"><i class="fa-solid fa-phone"></i></a>
+                            <div class="like-btn" data-title="꽃보다 소 양구점" data-img="https://placehold.co/100x100/e8f5e9/1a5e3a?text=🥩" style="position: static; box-shadow: none; background: transparent; width: auto; height: auto;"><i class="fa-regular fa-heart"></i></div>
+                        </div>
+                    </li>
+                    <li class="rest-table-item">
+                        <div class="rest-table-info"><h4>도촌삼계탕</h4><p>삼계탕</p><p class="address"><i class="fa-solid fa-location-dot"></i> 양구군 양구읍 청춘로 39-37</p></div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <a href="tel:033-482-1002" class="rest-table-phone"><i class="fa-solid fa-phone"></i></a>
+                            <div class="like-btn" data-title="도촌삼계탕" data-img="https://placehold.co/100x100/e8f5e9/1a5e3a?text=🍲" style="position: static; box-shadow: none; background: transparent; width: auto; height: auto;"><i class="fa-regular fa-heart"></i></div>
+                        </div>
+                    </li>
+                    <li class="rest-table-item">
+                        <div class="rest-table-info"><h4>도촌막국수식당</h4><p>막국수</p><p class="address"><i class="fa-solid fa-location-dot"></i> 양구군 국토정중앙면 국토정중앙로 6</p></div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <a href="tel:033-481-4627" class="rest-table-phone"><i class="fa-solid fa-phone"></i></a>
+                            <div class="like-btn" data-title="도촌막국수식당" data-img="https://placehold.co/100x100/e8f5e9/1a5e3a?text=🍜" style="position: static; box-shadow: none; background: transparent; width: auto; height: auto;"><i class="fa-regular fa-heart"></i></div>
+                        </div>
+                    </li>
+                    <li class="rest-table-item">
+                        <div class="rest-table-info"><h4>돈 갈비</h4><p>숯불구이</p><p class="address"><i class="fa-solid fa-location-dot"></i> 양구군 양구읍 해시계로 28-1</p></div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <a href="tel:033-482-9289" class="rest-table-phone"><i class="fa-solid fa-phone"></i></a>
+                            <div class="like-btn" data-title="돈 갈비" data-img="https://placehold.co/100x100/e8f5e9/1a5e3a?text=🥩" style="position: static; box-shadow: none; background: transparent; width: auto; height: auto;"><i class="fa-regular fa-heart"></i></div>
+                        </div>
+                    </li>
+                    <li class="rest-table-item">
+                        <div class="rest-table-info"><h4>모범떡볶이</h4><p>떡볶이</p><p class="address"><i class="fa-solid fa-location-dot"></i> 양구군 양구읍 중앙길 51</p></div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <a href="tel:033-481-9827" class="rest-table-phone"><i class="fa-solid fa-phone"></i></a>
+                            <div class="like-btn" data-title="모범떡볶이" data-img="https://placehold.co/100x100/e8f5e9/1a5e3a?text=🥘" style="position: static; box-shadow: none; background: transparent; width: auto; height: auto;"><i class="fa-regular fa-heart"></i></div>
+                        </div>
+                    </li>
+                    <li class="rest-table-item">
+                        <div class="rest-table-info"><h4>비비큐·우쿠야</h4><p>치킨, 돈까스</p><p class="address"><i class="fa-solid fa-location-dot"></i> 양구군 양구읍 중앙길 15</p></div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <a href="tel:033-481-1318" class="rest-table-phone"><i class="fa-solid fa-phone"></i></a>
+                            <div class="like-btn" data-title="비비큐·우쿠야" data-img="https://placehold.co/100x100/e8f5e9/1a5e3a?text=🍗" style="position: static; box-shadow: none; background: transparent; width: auto; height: auto;"><i class="fa-regular fa-heart"></i></div>
+                        </div>
+                    </li>
+                    <li class="rest-table-item">
+                        <div class="rest-table-info"><h4>샤브향</h4><p>고기류 샤브</p><p class="address"><i class="fa-solid fa-location-dot"></i> 양구군 양구읍 양남로16번길 3</p></div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <a href="tel:033-482-5633" class="rest-table-phone"><i class="fa-solid fa-phone"></i></a>
+                            <div class="like-btn" data-title="샤브향" data-img="https://placehold.co/100x100/e8f5e9/1a5e3a?text=🍲" style="position: static; box-shadow: none; background: transparent; width: auto; height: auto;"><i class="fa-regular fa-heart"></i></div>
+                        </div>
+                    </li>
+                    <li class="rest-table-item">
+                        <div class="rest-table-info"><h4>소나무함흥냉면막국수</h4><p>냉면</p><p class="address"><i class="fa-solid fa-location-dot"></i> 양구군 양구읍 청춘로 82-38</p></div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <a href="tel:033-482-5234" class="rest-table-phone"><i class="fa-solid fa-phone"></i></a>
+                            <div class="like-btn" data-title="소나무함흥냉면막국수" data-img="https://placehold.co/100x100/e8f5e9/1a5e3a?text=🍜" style="position: static; box-shadow: none; background: transparent; width: auto; height: auto;"><i class="fa-regular fa-heart"></i></div>
+                        </div>
+                    </li>
+                    <li class="rest-table-item">
+                        <div class="rest-table-info"><h4>시래정</h4><p>시래기정식</p><p class="address"><i class="fa-solid fa-location-dot"></i> 양구군 양구읍 황강길 16-20</p></div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <a href="tel:033-481-6616" class="rest-table-phone"><i class="fa-solid fa-phone"></i></a>
+                            <div class="like-btn" data-title="시래정" data-img="https://placehold.co/100x100/e8f5e9/1a5e3a?text=🍱" style="position: static; box-shadow: none; background: transparent; width: auto; height: auto;"><i class="fa-regular fa-heart"></i></div>
+                        </div>
+                    </li>
+                    <li class="rest-table-item">
+                        <div class="rest-table-info"><h4>양구수산횟집</h4><p>민물회, 매운탕</p><p class="address"><i class="fa-solid fa-location-dot"></i> 양구군 양구읍 양록길23번길 6-2</p></div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <a href="tel:033-481-2643" class="rest-table-phone"><i class="fa-solid fa-phone"></i></a>
+                            <div class="like-btn" data-title="양구수산횟집" data-img="https://placehold.co/100x100/e8f5e9/1a5e3a?text=🐟" style="position: static; box-shadow: none; background: transparent; width: auto; height: auto;"><i class="fa-regular fa-heart"></i></div>
+                        </div>
+                    </li>
+                    <li class="rest-table-item">
+                        <div class="rest-table-info"><h4>오래드림고원</h4><p>식육</p><p class="address"><i class="fa-solid fa-location-dot"></i> 양구군 양구읍 양록길23번길 12-7</p></div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <a href="tel:033-481-9224" class="rest-table-phone"><i class="fa-solid fa-phone"></i></a>
+                            <div class="like-btn" data-title="오래드림고원" data-img="https://placehold.co/100x100/e8f5e9/1a5e3a?text=🥩" style="position: static; box-shadow: none; background: transparent; width: auto; height: auto;"><i class="fa-regular fa-heart"></i></div>
+                        </div>
+                    </li>
+                    <li class="rest-table-item">
+                        <div class="rest-table-info"><h4>이가돈가</h4><p>숯불구이</p><p class="address"><i class="fa-solid fa-location-dot"></i> 양구군 양구읍 사명길 118-10</p></div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <a href="tel:033-481-1400" class="rest-table-phone"><i class="fa-solid fa-phone"></i></a>
+                            <div class="like-btn" data-title="이가돈가" data-img="https://placehold.co/100x100/e8f5e9/1a5e3a?text=🥩" style="position: static; box-shadow: none; background: transparent; width: auto; height: auto;"><i class="fa-regular fa-heart"></i></div>
+                        </div>
+                    </li>
+                    <li class="rest-table-item">
+                        <div class="rest-table-info"><h4>장수오골계</h4><p>오골계구이, 탕류</p><p class="address"><i class="fa-solid fa-location-dot"></i> 양구군 양구읍 양록길23번길 6-17</p></div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <a href="tel:033-481-8175" class="rest-table-phone"><i class="fa-solid fa-phone"></i></a>
+                            <div class="like-btn" data-title="장수오골계" data-img="https://placehold.co/100x100/e8f5e9/1a5e3a?text=🍗" style="position: static; box-shadow: none; background: transparent; width: auto; height: auto;"><i class="fa-regular fa-heart"></i></div>
+                        </div>
+                    </li>
+                    <li class="rest-table-item">
+                        <div class="rest-table-info"><h4>청참치</h4><p>참치회, 바다회</p><p class="address"><i class="fa-solid fa-location-dot"></i> 양구군 양구읍 양록길23번길 6-11</p></div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <a href="tel:033-481-7233" class="rest-table-phone"><i class="fa-solid fa-phone"></i></a>
+                            <div class="like-btn" data-title="청참치" data-img="https://placehold.co/100x100/e8f5e9/1a5e3a?text=🍣" style="position: static; box-shadow: none; background: transparent; width: auto; height: auto;"><i class="fa-regular fa-heart"></i></div>
+                        </div>
+                    </li>
+                    <li class="rest-table-item">
+                        <div class="rest-table-info"><h4>최가네</h4><p>숯불구이</p><p class="address"><i class="fa-solid fa-location-dot"></i> 양구군 양구읍 양록길23번길 6-27</p></div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <a href="tel:033-481-3338" class="rest-table-phone"><i class="fa-solid fa-phone"></i></a>
+                            <div class="like-btn" data-title="최가네" data-img="https://placehold.co/100x100/e8f5e9/1a5e3a?text=🥩" style="position: static; box-shadow: none; background: transparent; width: auto; height: auto;"><i class="fa-regular fa-heart"></i></div>
+                        </div>
+                    </li>
+                    <li class="rest-table-item">
+                        <div class="rest-table-info"><h4>회마을</h4><p>바다회, 매운탕</p><p class="address"><i class="fa-solid fa-location-dot"></i> 양구군 양구읍</p></div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <a href="tel:033-481-5939" class="rest-table-phone"><i class="fa-solid fa-phone"></i></a>
+                            <div class="like-btn" data-title="회마을" data-img="https://placehold.co/100x100/e8f5e9/1a5e3a?text=🐟" style="position: static; box-shadow: none; background: transparent; width: auto; height: auto;"><i class="fa-regular fa-heart"></i></div>
+                        </div>
+                    </li>
+                </ul>
+            </details>
+        </section>
+
+        <!-- Gallery Carousel (Auto-scroll) -->
+        <section class="gallery-carousel">
+            <div class="carousel-track" id="auto-carousel">
+                <div class="carousel-slide">
+                    <img src="양구수목원.jpg" alt="양구수목원">
+                    <div class="slide-caption">양구수목원</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="용소빙벽.jpg" alt="용소빙벽">
+                    <div class="slide-caption">용소빙벽</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="출렁다리.png" alt="출렁다리">
+                    <div class="slide-caption">출렁다리</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="팔랑폭포.jpg" alt="팔랑폭포">
+                    <div class="slide-caption">팔랑폭포</div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="app-footer">
+            <div class="footer-info">
+                <h3>(24222) 강원특별자치도 양구군 양구읍 관공서로 38</h3>
+                <p>관광안내: 033-480-2183</p>
+                <div class="footer-links">
+                    <a href="#">이용약관</a>
+                    <a href="#">개인정보처리방침</a>
+                </div>
+                <p class="copyright">&copy; 2026 Yanggu-gun. All rights reserved.</p>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Bottom Tab Bar -->
+    <nav class="bottom-tab-bar">
+        <a href="#" class="tab-item active">
+            <i class="fa-solid fa-house"></i>
+            <span>홈</span>
+        </a>
+        <a href="#destinations" class="tab-item">
+            <i class="fa-solid fa-map"></i>
+            <span>여행지</span>
+        </a>
+        <a href="javascript:void(0)" class="tab-item" id="tab-favorites">
+            <i class="fa-solid fa-heart"></i>
+            <span>찜</span>
+        </a>
+        <a href="#" class="tab-item">
+            <i class="fa-solid fa-user"></i>
+            <span>마이페이지</span>
+        </a>
+    </nav>
+
+    <!-- Modal -->
+    <div id="dest-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div class="modal-body">
+                <img id="modal-img" src="" alt="Destination Image">
+                <div class="modal-text">
+                    <h3 id="modal-title"></h3>
+                    <p id="modal-desc"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Favorites Panel -->
+    <div id="favorites-panel" class="favorites-panel">
+        <div class="favorites-header">
+            <h2>나의 찜 목록 ❤️</h2>
+            <span class="close-fav-btn"><i class="fa-solid fa-xmark"></i></span>
+        </div>
+        <div id="fav-map" style="height: 40vh; width: 100%; border-bottom: 1px solid #e0e0e0; z-index: 1; flex-shrink: 0;"></div>
+        <div class="favorites-body" id="favorites-list">
+            <!-- 찜한 아이템이 여기에 동적으로 들어옵니다. -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
