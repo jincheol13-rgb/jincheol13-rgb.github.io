@@ -12,6 +12,10 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body.mobile-app {
     font-family: 'Noto Sans KR', sans-serif;
     background-color: var(--bg-main);
@@ -220,6 +224,15 @@ a { text-decoration: none; color: inherit; }
     align-items: center;
     gap: 8px;
     cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.cat-item:hover {
+    transform: translateY(-4px);
+}
+
+.cat-item:hover .icon-box {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .cat-item .icon-box {
@@ -670,6 +683,41 @@ a { text-decoration: none; color: inherit; }
     padding: 6px 12px;
     border-radius: 20px;
     font-weight: 500;
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 80px; /* Above bottom tab bar */
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    cursor: pointer;
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background: #124027;
+    transform: translateY(-2px);
 }
 
 /* =========================================================
