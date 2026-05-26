@@ -318,4 +318,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
         });
     }
+
+    // Notice Modal on Page Load
+    const noticeModal = document.getElementById('notice-modal');
+    const closeNoticeBtn = document.getElementById('close-notice-btn');
+
+    if (noticeModal && closeNoticeBtn) {
+        // Show modal on load
+        noticeModal.classList.add('show-modal');
+        document.body.style.overflow = 'hidden';
+
+        closeNoticeBtn.addEventListener('click', () => {
+            noticeModal.classList.remove('show-modal');
+            document.body.style.overflow = '';
+        });
+    }
 });
