@@ -274,4 +274,48 @@ document.addEventListener('DOMContentLoaded', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
+
+    // EmailJS Contact Form Logic
+    const contactForm = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('contact-submit-btn');
+
+    if (contactForm && submitBtn) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Prevent double submissions
+            submitBtn.classList.add('loading');
+            const originalBtnContent = submitBtn.innerHTML;
+            submitBtn.innerHTML = `<span>전송 중...</span> <i class="fa-solid fa-spinner fa-spin"></i>`;
+            submitBtn.disabled = true;
+
+            const name = document.getElementById('contact-name').value.trim();
+            const email = document.getElementById('contact-email').value.trim();
+            const title = document.getElementById('contact-title').value.trim();
+            const message = document.getElementById('contact-message').value.trim();
+            const time = new Date().toLocaleString('ko-KR');
+
+            const templateParams = {
+                name: name,
+                email: email,
+                title: title,
+                message: message,
+                time: time
+            };
+
+            emailjs.send('jincheol13', 'template_ew1g0co', templateParams)
+                .then(function(response) {
+                    alert('문의가 성공적으로 접수되었습니다. 곧 답변해 드리겠습니다! 😊');
+                    contactForm.reset();
+                }, function(error) {
+                    console.error('EmailJS 전송 오류:', error);
+                    alert('메일 전송에 실패했습니다. 잠시 후 다시 시도해 주세요. 😢');
+                })
+                .finally(function() {
+                    submitBtn.classList.remove('loading');
+                    submitBtn.innerHTML = originalBtnContent;
+                    submitBtn.disabled = false;
+                });
+        });
+    }
 });
